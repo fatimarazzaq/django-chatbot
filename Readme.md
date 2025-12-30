@@ -1,6 +1,6 @@
-# DJ Chatbot
+# Chat Assistant
 
-DJ Chatbot is a Django-based web application that serves as a chat assistant for users. It is designed to facilitate chat sessions, streamline user interactions, and deliver a responsive and intuitive user experience.
+Chat Assistant is a Django-based web application that serves as a chat assistant for users. It is designed to facilitate chat sessions, streamline user interactions, and deliver a responsive and intuitive user experience.
 
 ## Features
 
