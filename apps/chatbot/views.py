@@ -19,14 +19,19 @@ from .serializers import (
 # Initialize OpenAI client
 client = OpenAI(api_key=settings.OPENAI_API_KEY)
 
+conversation_history = [
+    {"role": "system", "content": "You are a helpful AI chat assistant."}
+]
+
 def chat_response(message):
+    conversation_history.append({"role": "user", "content": message})
+
     try:
         completion = client.chat.completions.create(
-            model="gpt-4o",
-            messages=[
-                {"role": "system", "content": "You are a helpful assistant."},
-                {"role": "user", "content": message},
-            ]
+            model="gpt-5.2-chat-latest",  # recommended for chat
+            messages=conversation_history,
+            max_completion_tokens=150,     # correct parameter
+            temperature=1
         )
         return completion.choices[0].message.content
     except OpenAIError as e:
