@@ -1,44 +1,45 @@
 {% extends 'accounts/base.html' %}
 
 {% block title %}
-    Signup
+Signup
 {% endblock title %}
 
 {% block content %}
-    <div class="container">
-        <div class="form-container">
-            <div class="form-header">
-                <h1>Create Account</h1>
-                <p>Join us and get started</p>
+<div class="container">
+    <div class="form-container">
+        <div class="form-header">
+            <h1>Create Account</h1>
+            <p>Join us and get started</p>
+        </div>
+        <form class="auth-form" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <i class="fas fa-user"></i>
+                <input type="text" placeholder="Username" name="username" id="username" required>
             </div>
-            <form class="auth-form" method="post">
-                <div class="form-group">
-                    <i class="fas fa-user"></i>
-                    <input type="text" placeholder="Username" name="username" id="username" required>
-                </div>
-                <div class="form-group">
-                    <i class="fas fa-envelope"></i>
-                    <input type="email" placeholder="Email" name="email" id="email" required>
-                </div>
-                <div class="form-group">
-                    <i class="fas fa-lock"></i>
-                    <input type="password" placeholder="Password" name="password1" id="password1" required>
-                </div>
-                <div class="form-group">
-                    <i class="fas fa-lock"></i>
-                    <input type="password" placeholder="Confirm Password" name="password2" id="password2" required>
-                </div>
-                <div class="form-options">
-                    <label class="remember-me">
-                        <input type="checkbox" required>
-                        <span>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span>
-                    </label>
-                </div>
-                <button type="submit" class="submit-btn">Sign Up</button>
-            </form>
-            <div class="form-footer">
-                <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+            <div class="form-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email" placeholder="Email" name="email" id="email" required>
             </div>
+            <div class="form-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Password" name="password1" id="password1" required>
+            </div>
+            <div class="form-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Confirm Password" name="password2" id="password2" required>
+            </div>
+            <div class="form-options">
+                <label class="remember-me">
+                    <input type="checkbox" required>
+                    <span>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span>
+                </label>
+            </div>
+            <button type="submit" class="submit-btn">Sign Up</button>
+        </form>
+        <div class="form-footer">
+            <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
         </div>
     </div>
+</div>
 {% endblock content %}
